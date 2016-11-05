@@ -1,0 +1,27 @@
+{
+  "userPointsVO": {
+    "userId": 119640
+  },
+  "superTeamPredictionVOList": [
+    {
+      "superTeamPredictionId": 56, //This one is already predicted.
+      "teams": {
+        "teamId": 2
+      },
+      "fixture": {
+        "matchId": 2
+      },
+      "userAllocPoints": 1200
+    },
+    {
+      "superTeamPredictionId": 0, //This one is a new prediction.
+      "teams": {
+        "teamId": 3
+      },
+      "fixture": {
+        "matchId": 3
+      },
+      "userAllocPoints": 1600
+    }
+  ]
+}

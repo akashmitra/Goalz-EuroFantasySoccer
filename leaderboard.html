@@ -1,0 +1,40 @@
+
+
+  <div class="container leaderboard-div">
+    <div id="mySidenavright" class="row sidenavright ">
+      <br>
+      <br>
+      <br>
+      <a href="javascript:void(0)" class="closebtnl" onclick="closeNavR()"><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span></a>
+      <div class="row userdetails" align="center">SUPERTEAM</div>
+      <div class="row" align="center"><img src="images/superteam_icon_nav.png" class="img-circle" height="30px" width="30px" align="center" /></div>
+      <div class="row " align="center" >
+        <ul>
+          <li  ng-repeat="topfive in leaderboard.superteam">
+          <div class="row leaderboard-div">
+            <div class="row leaderboard-category-labels" align="center">
+              <div class="col-md-6 userdetails ">{{topfive.userId}}</div>
+              <div class="col-md-6 leaderboard-points">({{topfive.teamPoints}})</div>
+            </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <br>
+      <div class="row userdetails" align="center">SUPERELEVEN</div>
+      <div class="row" align="center"><img src="images/supereleven_icon_nav.png" class="img-circle" height="30px" width="30px" align="center"/></div>
+      <div class="row " align="center" >
+        <ul>
+         <li ng-repeat="topfive in leaderboard.supereleven">
+            <div class="row leaderboard-category-labels">
+              <div class="col-md-6 userdetails ">{{topfive.userId}}</div>
+              <div class="col-md-6 leaderboard-points">({{topfive.playerPoints}})</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="clearfix"> </div>
+ </div>
+
+ 

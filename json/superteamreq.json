@@ -1,0 +1,24 @@
+{
+    "teams": {
+        "teamId": 1,
+        "teamName": "ENGLAND",
+        "countryCode": "ENG",
+        "playerLists": [],
+        "teamDetails": []
+    },
+    "userPoints": {
+        "userId": 123,
+        "teamPoints": 290,
+        "playerPoints": 100
+    },
+    "fixture": {
+        "matchId": 1,
+        "team1": null,
+        "team2": null,
+        "matchDateTime": 1462524627851,
+        "matchVenue": "ENGLAND"
+    },
+    "userAllocPoints": 100,
+    "pointFact": 0,
+    "matchPoints": 122
+}

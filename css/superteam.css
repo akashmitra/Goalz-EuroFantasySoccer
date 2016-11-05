@@ -1,0 +1,105 @@
+
+.country-title{
+  color: white;
+  font-size: 20px;
+  padding-top: 13px
+}
+
+.my-container img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: auto;
+    opacity: 0.6;
+}
+hr {
+  border:none;
+  border-top:1px dotted #f00;
+  color:#fff;
+  background-color:#fff;
+  height:1px;
+  width:50%;
+}
+
+.superTable {
+    rules: all !important;
+    rule-style: dotted solid !important;
+    rule-width: 5pt 2pt !important;
+    rule-color: green white !important;
+    background-color: black;
+    width: 80%;
+    max-width: 80%;
+    margin-bottom: 20px;
+    opacity: 0.6;
+   border-bottom: solid;
+   border: solid 1px;
+   color:white;
+  
+  
+}
+
+div.content {
+    border-style: solid;
+    border-width: 1px;
+    border-color:white;
+    padding-top:10px;
+    padding-bottom:50px;
+}
+
+
+thead td {
+    border-style: none none solid none;
+    border-width: thick;
+    border-color: red;
+    margin: 4pt;
+}
+
+.submit-button {
+  background-color:#3C89B7;
+  width:180px;
+  height:30px;
+  border:none;
+  color:#FFFFFF;
+}
+
+
+div.row.content-header{
+  padding-top:30px;
+  
+}
+
+.points-box{
+padding-top:10px;
+}
+
+
+.resultbox{
+  margin-top:60px;
+  color: #3C89B7;
+}
+
+.category-labels{
+  border-bottom:1px dotted white;
+  padding-bottom:5px;
+  margin-top:15px;
+}
+
+.teamDetails{
+  color:#FFFFFF;
+}
+.pointbox{
+  
+    width: 50px;
+    height: 20px;
+
+}
+
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+}

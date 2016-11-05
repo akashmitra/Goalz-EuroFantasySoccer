@@ -1,0 +1,110 @@
+hr {
+    border: none;
+    border-top: 1px dotted #f00;
+    color: #fff;
+    background-color: #fff;
+    height: 1px;
+    width: 50%;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+
+/*Drag and Drop Module for Super Eleven*/
+
+.placeholder-droppable {
+    border-radius: 50%;
+    width: 60%;
+    border: 5px;
+    border-color: black;
+    width: 120px;
+    height: 120px;
+    padding-left: 4px;
+}
+
+.btn-draggable {
+    width: 145px;
+}
+
+.player-headshot {
+    border-radius: 50%;
+    width: 50%;
+}
+
+.playerpoints {
+    padding-right: 15px !important;
+    width: 70px;
+}
+
+.ground {
+    background-image: url("../images/field.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.superfwd {
+    padding-top: 35px;
+    padding-left: 135px;
+}
+
+.supermid {
+    padding-left: 70px;
+}
+
+.superdef {
+    padding-left: 70px;
+}
+
+.supergk {
+    padding-left: 270px;
+}
+
+.player-thumbnails {
+    margin-left: -10px;
+    list-style: none;
+    *zoom: 1
+}
+
+.player-thumbnails>li {
+    float: left;
+    margin-bottom: 20px;
+    margin-left: 10px;
+}
+
+div.supereleven-content {
+    border-style: solid;
+    border-width: 1px;
+    border-color:white;
+    padding-top:10px;
+    padding-bottom:50px;
+    color: #FFFFFF;
+}
+
+.player-box{
+    padding-y: scroll;
+    margin-bottom: 20px;
+}
+
+.playerdetails{
+    font-size:80%;
+}
+
+.playername{
+    color : #337ab7;
+}
+
+.userCannoPlaySection{
+    background-color: black;
+}
+
+.crest {
+    width: 20%;
+    position: absolute;
+    top: 40px;
+    left: 20px;
+}

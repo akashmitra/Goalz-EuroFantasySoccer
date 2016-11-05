@@ -1,0 +1,52 @@
+{
+  "userPointsVO": {
+    "userId": 119640,
+    "teamPoints": 0,
+    "playerPoints": 0,
+    "lastModifiedTime": null,
+    "superPlayerPredictionVO": [],
+    "superTeamPredictionVO": []
+  },
+  "superTeamPredictionVOList": [
+    {
+      "superTeamPredictionId": 56, //This one is already predicted.
+      "teams": {
+        "teamId": 2,
+        "teamName": "ENGLAND",
+        "countryCode": "ENG",
+        "playerLists": [],
+        "teamDetails": []
+      },
+      "fixture": {
+        "matchId": 2,
+        "team1": null,
+        "team2": null,
+        "matchDateTime": null,
+        "matchVenue": null
+      },
+      "userAllocPoints": 1200,
+      "pointFact": 0,
+      "matchPoints": 0
+    },
+    {
+      "superTeamPredictionId": 0, //This one is a new prediction.
+      "teams": {
+        "teamId": 3,
+        "teamName": "BRAZIL",
+        "countryCode": "BRZ",
+        "playerLists": [],
+        "teamDetails": []
+      },
+      "fixture": {
+        "matchId": 3,
+        "team1": null,
+        "team2": null,
+        "matchDateTime": null,
+        "matchVenue": null
+      },
+      "userAllocPoints": 1600,
+      "pointFact": 0,
+      "matchPoints": 0
+    }
+  ]
+}

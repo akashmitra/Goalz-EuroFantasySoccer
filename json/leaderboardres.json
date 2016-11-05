@@ -1,0 +1,66 @@
+{
+   "superTeamVO": {"userPointsVO":    [
+            {
+         "userId": 485870,
+         "teamPoints": 49000,
+         "playerPoints": 322561,
+         "lastModifiedTime": null
+      },
+            {
+         "userId": 485869,
+         "teamPoints": 16000,
+         "playerPoints": 251000,
+         "lastModifiedTime": null
+      },
+            {
+         "userId": 299764,
+         "teamPoints": 9000,
+         "playerPoints": 87500,
+         "lastModifiedTime": null
+      },
+            {
+         "userId": 299321,
+         "teamPoints": 7500,
+         "playerPoints": 6075,
+         "lastModifiedTime": null
+      },
+            {
+         "userId": 497592,
+         "teamPoints": 5600,
+         "playerPoints": 1200,
+         "lastModifiedTime": "2016-05-13"
+      }
+   ]},
+   "superElevenVO": {"userPointsVO":    [
+            {
+         "userId": 485870,
+         "teamPoints": 49000,
+         "playerPoints": 322561,
+         "lastModifiedTime": null
+      },
+            {
+         "userId": 485869,
+         "teamPoints": 16000,
+         "playerPoints": 251000,
+         "lastModifiedTime": null
+      },
+            {
+         "userId": 299764,
+         "teamPoints": 9000,
+         "playerPoints": 87500,
+         "lastModifiedTime": null
+      },
+            {
+         "userId": 299321,
+         "teamPoints": 7500,
+         "playerPoints": 6075,
+         "lastModifiedTime": null
+      },
+            {
+         "userId": 485877,
+         "teamPoints": 300,
+         "playerPoints": 5000,
+         "lastModifiedTime": null
+      }
+   ]}
+}

@@ -1,0 +1,1077 @@
+{
+  "fixtureVOList": [
+    {
+      "matchId": 2,
+      "team1": {
+        "teamId": 1,
+        "teamName": "ALBANIA",
+        "countryCode": "ALB",
+        "playerLists": [
+          {
+            "playerId": 1,
+            "playerCode": "ALB_1",
+            "position": "GK",
+            "name": "Raymond",
+            "age": 27,
+            "club": "Lazio",
+            "euroPoint": 100,
+            "played": 8,
+            "goals": 5,
+            "rank": 0
+         },
+          {
+            "playerId": 2,
+            "playerCode": "ALB_2",
+            "position": "GK",
+            "name": "ABCD",
+            "age": 25,
+            "club": "Dortmund",
+            "euroPoint": 0,
+            "played": 1,
+            "goals": 0,
+            "rank": 0
+          },
+          {
+            "playerId": 3,
+            "playerCode": "ALB_3",
+            "position": "FWD",
+            "name": "Goal",
+            "age": 27,
+            "club": "Lazio",
+            "euroPoint": 100,
+            "played": 8,
+            "goals": 5,
+            "rank": 0
+         },
+         {
+            "playerId": 4,
+            "playerCode": "ALB_4",
+            "position": "FWD",
+            "name": "Akash",
+            "age": 27,
+            "club": "Lazio",
+            "euroPoint": 100,
+            "played": 8,
+            "goals": 5,
+            "rank": 0
+         },
+         {
+            "playerId": 5,
+            "playerCode": "ALB_5",
+            "position": "FWD",
+            "name": "Arjun",
+            "age": 27,
+            "club": "Lazio",
+            "euroPoint": 100,
+            "played": 8,
+            "goals": 5,
+            "rank": 0
+         },
+         {
+            "playerId": 6,
+            "playerCode": "ALB_6",
+            "position": "MID",
+            "name": "Arjun",
+            "age": 27,
+            "club": "Lazio",
+            "euroPoint": 100,
+            "played": 8,
+            "goals": 5,
+            "rank": 0
+         },
+         {
+            "playerId": 7,
+            "playerCode": "ALB_7",
+            "position": "MID",
+            "name": "Arjun",
+            "age": 27,
+            "club": "Lazio",
+            "euroPoint": 100,
+            "played": 8,
+            "goals": 5,
+            "rank": 0
+         },
+         {
+            "playerId": 8,
+            "playerCode": "ALB_8",
+            "position": "MID",
+            "name": "TTTTTT",
+            "age": 27,
+            "club": "Lazio",
+            "euroPoint": 100,
+            "played": 8,
+            "goals": 5,
+            "rank": 0
+         },
+         {
+            "playerId": 9,
+            "playerCode": "ALB_9",
+            "position": "MID",
+            "name": "MMMM",
+            "age": 27,
+            "club": "Lazio",
+            "euroPoint": 100,
+            "played": 8,
+            "goals": 5,
+            "rank": 0
+         },
+         {
+            "playerId": 10,
+            "playerCode": "ALB_10",
+            "position": "DEF",
+            "name": "P",
+            "age": 27,
+            "club": "Lazio",
+            "euroPoint": 100,
+            "played": 8,
+            "goals": 5,
+            "rank": 0
+         },
+         {
+            "playerId": 11,
+            "playerCode": "ALB_11",
+            "position": "DEF",
+            "name": "P",
+            "age": 27,
+            "club": "Lazio",
+            "euroPoint": 100,
+            "played": 8,
+            "goals": 5,
+            "rank": 0
+         },
+         {
+            "playerId": 12,
+            "playerCode": "ALB_12",
+            "position": "DEF",
+            "name": "P",
+            "age": 27,
+            "club": "Lazio",
+            "euroPoint": 100,
+            "played": 8,
+            "goals": 5,
+            "rank": 0
+         }
+        ],
+        "teamDetails": [
+          {
+            "teamDetailsId": 2,
+            "level": "Qualifying",
+            "played": 50,
+            "won": 15,
+            "draw": 10,
+            "lost": 25,
+            "fgoal": 160,
+            "agoal": 100,
+            "rank": 0
+          },
+          {
+            "teamDetailsId": 1,
+            "level": "Finals",
+            "played": 3,
+            "won": 1,
+            "draw": 0,
+            "lost": 2,
+            "fgoal": 1,
+            "agoal": 5,
+            "rank": 0
+          }
+        ]
+      },
+      "team2": {
+        "teamId": 2,
+        "teamName": "ENGLAND",
+        "countryCode": "ENG",
+        "playerLists": [
+          {
+            "playerId": 13,
+            "playerCode": "ENG_1",
+            "position": "GK",
+            "name": "Etrit Berisha",
+            "age": 27,
+            "club": "Lazio",
+            "euroPoint": 100,
+            "played": 8,
+            "goals": 5,
+            "rank": 0
+         },
+          {
+            "playerId": 14,
+            "playerCode": "ENG_2",
+            "position": "GK",
+            "name": "ABCD",
+            "age": 25,
+            "club": "Dortmund",
+            "euroPoint": 0,
+            "played": 1,
+            "goals": 0,
+            "rank": 0
+          },
+          {
+            "playerId": 15,
+            "playerCode": "ENG_3",
+            "position": "FWD",
+            "name": "Goal",
+            "age": 27,
+            "club": "Lazio",
+            "euroPoint": 100,
+            "played": 8,
+            "goals": 5,
+            "rank": 0
+         },
+         {
+            "playerId": 16,
+            "playerCode": "ENG_4",
+            "position": "FWD",
+            "name": "Akash",
+            "age": 27,
+            "club": "Lazio",
+            "euroPoint": 100,
+            "played": 8,
+            "goals": 5,
+            "rank": 0
+         },
+         {
+            "playerId": 17,
+            "playerCode": "ENG_5",
+            "position": "FWD",
+            "name": "Arjun",
+            "age": 27,
+            "club": "Lazio",
+            "euroPoint": 100,
+            "played": 8,
+            "goals": 5,
+            "rank": 0
+         },
+         {
+            "playerId": 18,
+            "playerCode": "ENG_6",
+            "position": "MID",
+            "name": "Arjun",
+            "age": 27,
+            "club": "Lazio",
+            "euroPoint": 100,
+            "played": 8,
+            "goals": 5,
+            "rank": 0
+         },
+         {
+            "playerId": 19,
+            "playerCode": "ENG_7",
+            "position": "MID",
+            "name": "Arjun",
+            "age": 27,
+            "club": "Lazio",
+            "euroPoint": 100,
+            "played": 8,
+            "goals": 5,
+            "rank": 0
+         },
+         {
+            "playerId": 20,
+            "playerCode": "ENG_8",
+            "position": "MID",
+            "name": "TTTTTT",
+            "age": 27,
+            "club": "Lazio",
+            "euroPoint": 100,
+            "played": 8,
+            "goals": 5,
+            "rank": 0
+         },
+         {
+            "playerId": 21,
+            "playerCode": "ENG_9",
+            "position": "MID",
+            "name": "MMMM",
+            "age": 27,
+            "club": "Lazio",
+            "euroPoint": 100,
+            "played": 8,
+            "goals": 5,
+            "rank": 0
+         },
+         {
+            "playerId": 22,
+            "playerCode": "ENG_10",
+            "position": "DEF",
+            "name": "P",
+            "age": 27,
+            "club": "Lazio",
+            "euroPoint": 100,
+            "played": 8,
+            "goals": 5,
+            "rank": 0
+         },
+         {
+            "playerId": 23,
+            "playerCode": "ENG_11",
+            "position": "DEF",
+            "name": "P",
+            "age": 27,
+            "club": "Lazio",
+            "euroPoint": 100,
+            "played": 8,
+            "goals": 5,
+            "rank": 0
+         },
+         {
+            "playerId": 24,
+            "playerCode": "ENG_12",
+            "position": "DEF",
+            "name": "P",
+            "age": 27,
+            "club": "Lazio",
+            "euroPoint": 100,
+            "played": 8,
+            "goals": 5,
+            "rank": 0
+         }
+        ],
+        "teamDetails": [
+          {
+            "teamDetailsId": 4,
+            "level": "Qualifying",
+            "played": 75,
+            "won": 25,
+            "draw": 25,
+            "lost": 25,
+            "fgoal": 260,
+            "agoal": 200,
+            "rank": 0
+          },
+          {
+            "teamDetailsId": 3,
+            "level": "Finals",
+            "played": 3,
+            "won": 2,
+            "draw": 0,
+            "lost": 2,
+            "fgoal": 2,
+            "agoal": 5,
+            "rank": 0
+          }
+        ]
+      },
+      "matchDateTime": "2016/06/01 20:30:00",
+      "matchVenue": "Lens"
+    },
+    {
+      "matchId": 3,
+      "team1": {
+        "teamId": 4,
+        "teamName": "SPAIN",
+        "countryCode": "ESP",
+        "playerLists": [
+        {
+            "playerId": 1,
+            "playerCode": "ESP_1",
+            "position": "GK",
+            "name": "Raymond",
+            "age": 27,
+            "club": "Lazio",
+            "euroPoint": 100,
+            "played": 8,
+            "goals": 5,
+            "rank": 0
+         },
+          {
+            "playerId": 2,
+            "playerCode": "ESP_2",
+            "position": "GK",
+            "name": "ABCD",
+            "age": 25,
+            "club": "Dortmund",
+            "euroPoint": 0,
+            "played": 1,
+            "goals": 0,
+            "rank": 0
+          },
+          {
+            "playerId": 3,
+            "playerCode": "ESP_3",
+            "position": "FWD",
+            "name": "Goal",
+            "age": 27,
+            "club": "Lazio",
+            "euroPoint": 100,
+            "played": 8,
+            "goals": 5,
+            "rank": 0
+         },
+         {
+            "playerId": 4,
+            "playerCode": "ESP_4",
+            "position": "FWD",
+            "name": "Akash",
+            "age": 27,
+            "club": "Lazio",
+            "euroPoint": 100,
+            "played": 8,
+            "goals": 5,
+            "rank": 0
+         },
+         {
+            "playerId": 5,
+            "playerCode": "ESP_5",
+            "position": "FWD",
+            "name": "Arjun",
+            "age": 27,
+            "club": "Lazio",
+            "euroPoint": 100,
+            "played": 8,
+            "goals": 5,
+            "rank": 0
+         },
+         {
+            "playerId": 6,
+            "playerCode": "ESP_6",
+            "position": "MID",
+            "name": "Arjun",
+            "age": 27,
+            "club": "Lazio",
+            "euroPoint": 100,
+            "played": 8,
+            "goals": 5,
+            "rank": 0
+         },
+         {
+            "playerId": 7,
+            "playerCode": "ESP_7",
+            "position": "MID",
+            "name": "Arjun",
+            "age": 27,
+            "club": "Lazio",
+            "euroPoint": 100,
+            "played": 8,
+            "goals": 5,
+            "rank": 0
+         },
+         {
+            "playerId": 8,
+            "playerCode": "ESP_8",
+            "position": "MID",
+            "name": "TTTTTT",
+            "age": 27,
+            "club": "Lazio",
+            "euroPoint": 100,
+            "played": 8,
+            "goals": 5,
+            "rank": 0
+         },
+         {
+            "playerId": 9,
+            "playerCode": "ESP_9",
+            "position": "MID",
+            "name": "MMMM",
+            "age": 27,
+            "club": "Lazio",
+            "euroPoint": 100,
+            "played": 8,
+            "goals": 5,
+            "rank": 0
+         },
+         {
+            "playerId": 10,
+            "playerCode": "ESP_10",
+            "position": "DEF",
+            "name": "P",
+            "age": 27,
+            "club": "Lazio",
+            "euroPoint": 100,
+            "played": 8,
+            "goals": 5,
+            "rank": 0
+         },
+         {
+            "playerId": 11,
+            "playerCode": "ESP_11",
+            "position": "DEF",
+            "name": "P",
+            "age": 27,
+            "club": "Lazio",
+            "euroPoint": 100,
+            "played": 8,
+            "goals": 5,
+            "rank": 0
+         },
+         {
+            "playerId": 12,
+            "playerCode": "ESP_12",
+            "position": "DEF",
+            "name": "P",
+            "age": 27,
+            "club": "Lazio",
+            "euroPoint": 100,
+            "played": 8,
+            "goals": 5,
+            "rank": 0
+         },
+         {
+            "playerId": 13,
+            "playerCode": "ESP_13",
+            "position": "DEF",
+            "name": "P",
+            "age": 27,
+            "club": "Lazio",
+            "euroPoint": 100,
+            "played": 8,
+            "goals": 5,
+            "rank": 0
+         },
+         {
+            "playerId": 14,
+            "playerCode": "ESP_14",
+            "position": "DEF",
+            "name": "P",
+            "age": 27,
+            "club": "Lazio",
+            "euroPoint": 100,
+            "played": 8,
+            "goals": 5,
+            "rank": 0
+         }
+        ],
+        "teamDetails": [
+          {
+            "teamDetailsId": 4,
+            "level": "Qualifying",
+            "played": 50,
+            "won": 45,
+            "draw": 40,
+            "lost": 45,
+            "fgoal": 460,
+            "agoal": 400,
+            "rank": 0
+          },
+          {
+            "teamDetailsId": 4,
+            "level": "Finals",
+            "played": 4,
+            "won": 4,
+            "draw": 0,
+            "lost": 4,
+            "fgoal": 4,
+            "agoal": 5,
+            "rank": 0
+          }
+        ]
+      },
+      "team2": {
+        "teamId": 4,
+        "teamName": "GERMANY",
+        "countryCode": "GER",
+        "playerLists": [
+          {
+            "playerId": 15,
+            "playerCode": "GER_1",
+            "position": "GK",
+            "name": "Etrit Berisha",
+            "age": 27,
+            "club": "Lazio",
+            "euroPoint": 100,
+            "played": 8,
+            "goals": 5,
+            "rank": 0
+         },
+          {
+            "playerId": 16,
+            "playerCode": "GER_2",
+            "position": "GK",
+            "name": "ABCD",
+            "age": 25,
+            "club": "Dortmund",
+            "euroPoint": 0,
+            "played": 1,
+            "goals": 0,
+            "rank": 0
+          },
+          {
+            "playerId": 17,
+            "playerCode": "GER_3",
+            "position": "FWD",
+            "name": "Goal",
+            "age": 27,
+            "club": "Lazio",
+            "euroPoint": 100,
+            "played": 8,
+            "goals": 5,
+            "rank": 0
+         },
+         {
+            "playerId": 18,
+            "playerCode": "GER_4",
+            "position": "FWD",
+            "name": "Akash",
+            "age": 27,
+            "club": "Lazio",
+            "euroPoint": 100,
+            "played": 8,
+            "goals": 5,
+            "rank": 0
+         },
+         {
+            "playerId": 19,
+            "playerCode": "GER_5",
+            "position": "FWD",
+            "name": "Arjun",
+            "age": 27,
+            "club": "Lazio",
+            "euroPoint": 100,
+            "played": 8,
+            "goals": 5,
+            "rank": 0
+         },
+         {
+            "playerId": 20,
+            "playerCode": "GER_6",
+            "position": "MID",
+            "name": "Arjun",
+            "age": 27,
+            "club": "zo",
+            "euroPoint": 100,
+            "played": 8,
+            "goals": 5,
+            "rank": 0
+         },
+         {
+            "playerId": 21,
+            "playerCode": "GER_7",
+            "position": "MID",
+            "name": "Arjun",
+            "age": 27,
+            "club": "zo",
+            "euroPoint": 100,
+            "played": 8,
+            "goals": 5,
+            "rank": 0
+         },
+         {
+            "playerId": 22,
+            "playerCode": "GER_8",
+            "position": "MID",
+            "name": "TTTTTT",
+            "age": 27,
+            "club": "zo",
+            "euroPoint": 100,
+            "played": 8,
+            "goals": 5,
+            "rank": 0
+         },
+         {
+            "playerId": 23,
+            "playerCode": "GER_9",
+            "position": "MID",
+            "name": "MMMM",
+            "age": 27,
+            "club": "zo",
+            "euroPoint": 100,
+            "played": 8,
+            "goals": 5,
+            "rank": 0
+         },
+         {
+            "playerId": 24,
+            "playerCode": "GER_10",
+            "position": "DEF",
+            "name": "P",
+            "age": 27,
+            "club": "zo",
+            "euroPoint": 100,
+            "played": 8,
+            "goals": 5,
+            "rank": 0
+         },
+         {
+            "playerId": 25,
+            "playerCode": "GER_11",
+            "position": "DEF",
+            "name": "P",
+            "age": 27,
+            "club": "zo",
+            "euroPoint": 100,
+            "played": 8,
+            "goals": 5,
+            "rank": 0
+         },
+         {
+            "playerId": 26,
+            "playerCode": "GER_12",
+            "position": "DEF",
+            "name": "P",
+            "age": 27,
+            "club": "zo",
+            "euroPoint": 100,
+            "played": 8,
+            "goals": 5,
+            "rank": 0
+         }
+        ],
+        "teamDetails": [
+          {
+            "teamDetailsId": 4,
+            "level": "Qualifying",
+            "played": 50,
+            "won": 45,
+            "draw": 40,
+            "lost": 45,
+            "fgoal": 460,
+            "agoal": 400,
+            "rank": 0
+          },
+          {
+            "teamDetailsId": 4,
+            "level": "Finals",
+            "played": 4,
+            "won": 4,
+            "draw": 0,
+            "lost": 4,
+            "fgoal": 4,
+            "agoal": 5,
+            "rank": 0
+          }
+        ],
+        "teamDetails": [
+          {
+            "teamDetailsId": 4,
+            "level": "Qualifying",
+            "played": 50,
+            "won": 45,
+            "draw": 40,
+            "lost": 45,
+            "fgoal": 460,
+            "agoal": 400,
+            "rank": 0
+          },
+          {
+            "teamDetailsId": 4,
+            "level": "Finals",
+            "played": 4,
+            "won": 4,
+            "draw": 0,
+            "lost": 4,
+            "fgoal": 4,
+            "agoal": 5,
+            "rank": 0
+          }
+        ]
+      },
+      "matchDateTime": "2016/06/01 23:30:00",
+      "matchVenue": "Bordeaux"
+    }
+  ],
+  "userPointsVO": {
+    "userId": 119640,
+    "teamPoints": 1200,
+    "playerPoints": 2000,
+    "lastModifiedTime": 1463145913890,
+    "superPlayerPredictionVO": [
+      {
+        "predictionId": 1,
+        "fixture": {
+          "matchId": 2,
+          "team1": null,
+          "team2": null,
+          "matchDateTime": "2016/06/01 20:30:00",
+          "matchVenue": "Lens"
+        },
+        "userPoints": null,
+        "predictedPlayers": [
+          {
+            "predictedPlayerId": 1,
+            "player": {
+            "playerId": 1,
+            "playerCode": "ALB_4",
+            "position": "FWD",
+            "name": "Akash",
+            "age": 27,
+            "club": "Lazio",
+            "euroPoint": 100,
+            "played": 8,
+            "goals": 5,
+            "rank": 0
+              
+            },
+            "userAllocPoints": 300,
+            "pointFact": 0,
+            "matchPoints": 0
+          },
+          {
+            "predictedPlayerId": 2,
+            "player": {
+            "playerId": 3,
+            "playerCode": "ALB_5",
+            "position": "FWD",
+            "name": "Akash",
+            "age": 27,
+            "club": "Lazio",
+            "euroPoint": 100,
+            "played": 8,
+            "goals": 5,
+            "rank": 0
+              
+            },
+            "userAllocPoints": 300,
+            "pointFact": 0,
+            "matchPoints": 0
+          },
+          {
+            "predictedPlayerId": 3,
+            "player": {
+            "playerId": 1,
+            "playerCode": "ALB_6",
+            "position": "FWD",
+            "name": "Akash",
+            "age": 27,
+            "club": "Lazio",
+            "euroPoint": 100,
+            "played": 8,
+            "goals": 5,
+            "rank": 0
+              
+            },
+            "userAllocPoints": 300,
+            "pointFact": 0,
+            "matchPoints": 0
+          },
+          {
+            "predictedPlayerId": 4,
+            "player": {
+            "playerId": 8,
+            "playerCode": "ALB_7",
+            "position": "FWD",
+            "name": "Akash",
+            "age": 27,
+            "club": "Lazio",
+            "euroPoint": 100,
+            "played": 8,
+            "goals": 5,
+            "rank": 0
+              
+            },
+            "userAllocPoints": 300,
+            "pointFact": 0,
+            "matchPoints": 0
+          },
+          {
+            "predictedPlayerId": 5,
+            "player": {
+            "playerId": 1,
+            "playerCode": "ENG_6",
+            "position": "MID",
+            "name": "Arjun",
+            "age": 27,
+            "club": "Lazio",
+            "euroPoint": 100,
+            "played": 8,
+            "goals": 5,
+            "rank": 0
+            },
+            "userAllocPoints": 200,
+            "pointFact": 0,
+            "matchPoints": 0
+          },
+          {
+            "predictedPlayerId": 6,
+            "player": {
+            "playerId": 1,
+            "playerCode": "ALB_6",
+            "position": "MID",
+            "name": "Arjun",
+            "age": 27,
+            "club": "Lazio",
+            "euroPoint": 100,
+            "played": 8,
+            "goals": 5,
+            "rank": 0
+            },
+            "userAllocPoints": 200,
+            "pointFact": 0,
+            "matchPoints": 0
+          },
+          {
+            "predictedPlayerId": 7,
+            "player": {
+            "playerId": 1,
+            "playerCode": "ENG_7",
+            "position": "MID",
+            "name": "Arjun",
+            "age": 27,
+            "club": "Lazio",
+            "euroPoint": 100,
+            "played": 8,
+            "goals": 5,
+            "rank": 0
+            },
+            "userAllocPoints": 200,
+            "pointFact": 0,
+            "matchPoints": 0
+          },
+          {
+            "predictedPlayerId": 8,
+            "player": {
+            "playerId": 1,
+            "playerCode": "ENG_8",
+            "position": "MID",
+            "name": "Arjun",
+            "age": 27,
+            "club": "Lazio",
+            "euroPoint": 100,
+            "played": 8,
+            "goals": 5,
+            "rank": 0
+            },
+            "userAllocPoints": 200,
+            "pointFact": 0,
+            "matchPoints": 0
+          },
+          {
+            "predictedPlayerId": 9,
+            "player": {
+            "playerId": 1,
+            "playerCode": "ENG_9",
+            "position": "MID",
+            "name": "Arjun",
+            "age": 27,
+            "club": "Lazio",
+            "euroPoint": 100,
+            "played": 8,
+            "goals": 5,
+            "rank": 0
+            },
+            "userAllocPoints": 200,
+            "pointFact": 0,
+            "matchPoints": 0
+          },
+          {
+            "predictedPlayerId": 10,
+            "player": {
+            "playerId": 1,
+            "playerCode": "ALB_10",
+            "position": "DEF",
+            "name": "P",
+            "age": 27,
+            "club": "Lazio",
+            "euroPoint": 100,
+            "played": 8,
+            "goals": 5,
+            "rank": 0
+            },
+            "userAllocPoints": 200,
+            "pointFact": 0,
+            "matchPoints": 0
+          },
+          {
+            "predictedPlayerId": 11,
+            "player": {
+            "playerId": 1,
+            "playerCode": "ALB_11",
+            "position": "DEF",
+            "name": "P",
+            "age": 27,
+            "club": "Lazio",
+            "euroPoint": 100,
+            "played": 8,
+            "goals": 5,
+            "rank": 0
+            },
+            "userAllocPoints": 200,
+            "pointFact": 0,
+            "matchPoints": 0
+          },
+          {
+            "predictedPlayerId": 12,
+            "player": {
+            "playerId": 1,
+            "playerCode": "ALB_12",
+            "position": "DEF",
+            "name": "P",
+            "age": 27,
+            "club": "Lazio",
+            "euroPoint": 100,
+            "played": 8,
+            "goals": 5,
+            "rank": 0
+            },
+            "userAllocPoints": 200,
+            "pointFact": 0,
+            "matchPoints": 0
+          },
+          {
+            "predictedPlayerId": 13,
+            "player": {
+            "playerId": 1,
+            "playerCode": "ENG_11",
+            "position": "DEF",
+            "name": "P",
+            "age": 27,
+            "club": "Lazio",
+            "euroPoint": 100,
+            "played": 8,
+            "goals": 5,
+            "rank": 0
+            },
+            "userAllocPoints": 200,
+            "pointFact": 0,
+            "matchPoints": 0
+          },
+          {
+            "predictedPlayerId": 14,
+            "player": {
+            "playerId": 1,
+            "playerCode": "ENG_12",
+            "position": "DEF",
+            "name": "P",
+            "age": 27,
+            "club": "Lazio",
+            "euroPoint": 100,
+            "played": 8,
+            "goals": 5,
+            "rank": 0
+            },
+            "userAllocPoints": 200,
+            "pointFact": 0,
+            "matchPoints": 0
+          },
+          {
+            "predictedPlayerId": 15,
+            "player": {
+             "playerId": 328,
+            "playerCode": "ENG_2",
+            "position": "GK",
+            "name": "ABCD",
+            "age": 25,
+            "club": "Dortmund",
+            "euroPoint": 0,
+            "played": 1,
+            "goals": 0,
+            "rank": 0
+            },
+            "userAllocPoints": 200,
+            "pointFact": 0,
+            "matchPoints": 0
+          },
+          {
+            "predictedPlayerId": 16,
+            "player": {
+            "playerId": 1,
+            "playerCode": "ALB_1",
+            "position": "GK",
+            "name": "Etrit Berisha",
+            "age": 27,
+            "club": "Lazio",
+            "euroPoint": 100,
+            "played": 8,
+            "goals": 5,
+            "rank": 0
+            },
+            "userAllocPoints": 200,
+            "pointFact": 0,
+            "matchPoints": 0
+          }
+        ]
+      }
+    ],
+    "superTeamPredictionVO": []
+  }
+}
+

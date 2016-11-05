@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html ng-app="goalzApp">
+
+<head>
+  <title>Goalz 2.0 : Euro Fantasy Football</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="shortcut icon" href="images/euro2016.ico" />
+  <link href="css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="all">
+  <link href="css/animate.css" rel="stylesheet" type="text/css" media="all">
+  <link href="css/superteam.css" rel="stylesheet" type="text/css" media="all">
+  <link href="css/sidenav.css" rel="stylesheet" type="text/css" media="all">
+  <link href='//fonts.googleapis.com/css?family=Cabin:400,400italic,500,500italic,600,600italic,700,700italic' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+</head>
+
+<body ng-controller="superteamCtrl">
+  <!--navigation-->
+  <div class="header ng-cloak">
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header navbar-left">
+          <button type="button" class="navbar-toggle" ng-click="navbarCollapsed = !navbarCollapsed">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <h3><a class="navbar-brand wow bounceIn animated"  href="index.html">
+            <img class="euro-logo" src="images/logo.png"/> <div class="sitetitle">GOALZ 2.0</div>
+          </a></h3>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="navbar-right" uib-collapse="navbarCollapsed">
+          <ul class="nav navbar-nav navbar-left">
+            <li class="hvr-bounce-to-bottom"><a href="index.html">Home</a></li>
+            <li class="hvr-bounce-to-bottom active"><a href="superteam.html">Super Team</a></li>
+            <li class="hvr-bounce-to-bottom"><a href="supereleven.html">Super XI</a></li>
+            <li id="points" class="hvr-bounce-to-bottom">
+              <!--<a id="showleaderboard" href="#" onclick="openNavright()">{{teamPoints}} | {{playerPoints}}</a>
+              <a id="hideleaderboard" href="#" onclick="closeNavR()">{{teamPoints}} | {{playerPoints}}</a>-->
+              <a id="showleaderboard" href="#" onclick="openNavright()">
+                                    <div class="row leaderboard">
+                              
+                                         <img src="images/superteam_icon_nav.png" class="img-circle" height="30px" width="30px"/>
+                              
+                                        {{teamPoints}} | 
+                                         <img src="images/supereleven_icon_nav.png" class="img-circle" height="30px" width="30px"/>
+                                         {{playerPoints}}
+                                    </div>
+                            </a>
+              <a id="hideleaderboard" href="#" onclick="closeNavR()">
+                <div class="row leaderboard">
+                              <img src="images/superteam_icon_nav.png" class="img-circle" height="30px" width="30px"/>
+                              
+                              {{teamPoints}} | 
+                              <img src="images/supereleven_icon_nav.png" class="img-circle" height="30px" width="30px"/>
+                              {{playerPoints}}
+                            </div> 
+              </a>
+            </li>
+             <li class="hvr-bounce-to-bottom"><a href="#" ng-click="logout()">Logout</a></li>
+          </ul>
+          <div class="clearfix"> </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <!--navigation-->
+  <!--about-->
+  <div class="about" id="about">
+    <div class="container">
+      <div align="center"><img src="images/header-logo.png"></div>
+      <br>
+      <div class="logo-background">
+        <h3 class="pageheadertitle">Super Team</h3>
+      </div>
+      <div class="col-md-12 about-right fadeInRight animated" align="center">
+        <h4>How to play Super Team?</h4>
+        <h4>Predict the Winning team and Goal Margin and Win Points.</h4>
+        <p>Correct Team Prediction will fetch you 2points. Correct Prediction with Goal Margin with get you 5points. And no Points for wrong Prediction</p>
+      </div>
+      <div class="clearfix"> </div>
+    </div>
+  </div>
+  <!--//about-->
+  <!--team-->
+<form name="superTeamForm" ng-submit="submitPrediction();">
+  <div class="superteamsection ng-cloak" id="team">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-offset-4 col-md-4" style="color: white;
+        font-size: 35px; text-align: center">
+        <label>SUPER TEAM</label>
+      </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+        <h5 style="margin-top:8px; color: red; text-align: center">{{pointsErrorMsg}}</h5>
+      </div>
+    </div>
+
+    <br><br><br>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="row">
+          <div class="col-md-12" >
+            <uib-tabset active="active">
+
+            <uib-tab index="$index + 1" ng-repeat="result in results" heading="Match#{{result.matchId}}" active="result.active" disable="result.disabled" ng-model="matchIds[$index]">
+
+            <!-- begin match details section-->
+            <div class="content">
+            <div class="row"  ng-show="userCannotPlay[$index] == result.matchId && existingPrediction[$index][result.matchId].superTeamPredictionId == null">
+                <div class="col-md-12">
+                <h4 align="center" style="color:#ffad33">{{userCannotPlayWarning}}</h4>
+                </div>
+            </div>
+            <div class="row" ng-show="sc.errorMsg != ''">
+            <div class="col-md-12">
+                <h5 align="center" style="color:red">{{errorMsg}}</h5>
+            </div>
+            </div>
+              <div class="row content-header">
+                <div class="col-md-12">
+                 <div class="row">
+                  <div class="col-md-5">
+                    <div class="row">
+                     <div class="col-md-8">
+                      <div class="row">
+                        <div class="col-md-12">
+                          <h5 class="country-title" align="right" style="padding-top: 13px">{{result.team1.teamName}}</h5>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="row">
+                        <div class="col-md-12">
+                         <img ng-src="images/flags/{{result.team1.countryCode}}.png"  class="img-circle" alt="{{result.team1.teamName}}" align="right" width="50" height="50"/>
+                       </div>
+                     </div>
+                   </div> 
+                   <div class="col-md-1 radio">
+                    <div class="row">
+                      <div class="col-md-12"> 
+                        <label><input type="radio" name="{{result.team1.teamName}}" ng-model="existingPrediction[$index][result.matchId].teams.teamId" value="{{result.team1.teamId}}" ng-disabled="existingPrediction[$index][result.matchId].superTeamPredictionId != null || userCannotPlay[$index] == result.matchId"></label>
+                      </div>
+                    </div>
+                  </div>
+
+                </div> 
+              </div>
+              <div class="col-md-2">
+                <div class="row">
+                  <div class="col-md-12">
+                   <div class="points-box">
+                   <input name= "points" type="number" class="form-control" placeholder="Points" min="0" ng-model="existingPrediction[$index][result.matchId].userAllocPoints" ng-disabled="existingPrediction[$index][result.matchId].superTeamPredictionId != null || userCannotPlay[$index] == result.matchId"/>
+                   </div>
+                 </div>
+               </div>
+               <div class="row">
+                 <div class="col-md-12" align="center" style="margin-top:14px">
+                   <label><input type="radio" name="{{result.team1.teamName}}" ng-model="existingPrediction[$index][result.matchId].teams.teamId" ng-disabled="existingPrediction[$index][result.matchId].superTeamPredictionId != null || userCannotPlay[$index] == result.matchId"></label>
+                   <h6 style="margin-top:5px; color: #FFFFFF">DRAW</h6>
+
+                 </div>
+               </div>
+             </div>
+             <div class="col-md-5">
+               <div class="col-md-1 radio">
+                <div class="row">
+                  <div class="col-md-12">
+                    <label><input type="radio" name="{{result.team2.teamName}}" ng-model="existingPrediction[$index][result.matchId].teams.teamId" value="{{result.team2.teamId}}" ng-disabled="existingPrediction[$index][result.matchId].superTeamPredictionId != null || userCannotPlay[$index] == result.matchId"></label>
+                  </div>
+                </div>
+              </div> 
+              <div class="col-md-3">
+                <div class="row">
+                  <div class="col-md-12">
+                    <img ng-src="images/flags/{{result.team2.countryCode}}.png" class="img-circle" alt="{{result.team2.teamName}}" width="50" height="50"/>
+                  </div>
+                </div>
+              </div> 
+              <div class="col-md-8">
+                <div class="row">
+                  <div class="col-md-12">
+                    <h5 class="country-title" align="left" style="padding-top: 13px">{{result.team2.teamName}}</h5>
+                  </div>
+                </div>
+              </div> 
+            </div>
+          </div>
+          <!-- end row -->
+          <!-- error message row -->
+          <div class="row">
+            <!-- <div align = "center" class= "col-md-offset-3 col-md-6">
+              <div ng-show="superTeamForm.{{result.team1.teamName}}.$touched && superTeamForm.points.$untouched || superTeamForm.{{result.team2.teamName}}.$touched && superTeamForm.points.$untouched">
+                <p style="color : red">Please enter points</p>
+              </div>
+              <div ng-show="superTeamForm.points.$dirty && superTeamForm.points.$error.number">
+                <p style="color : red">Enter only numbers</p>
+              </div>
+              <div ng-show="superTeamForm.points.$dirty && superTeamForm.{{result.team1.teamName}}.$pristine && superTeamForm.points.$dirty && superTeamForm.{{result.team2.teamName}}.$pristine">
+                <p style="color : red">Please select a team</p>
+              </div>
+
+            </div> -->
+          </div>
+          <!-- //end error msg row -->
+        </div>
+        <!--end col -->
+      </div>
+      <!-- end row content header-->
+      <div class="row resultbox" align="center">
+        <div class="col-md-12">
+          <div class="row">
+            <div class="col-md-offset-3 col-md-6">
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="row">
+                    <div class="col-md-6" style="text-align:center">
+                      <span class="text-muted">Qualifying</span>
+                    </div>
+                    <div class="col-md-6" style="text-align:center">
+                      <span class="text-muted">Finals</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                  <div class="row">
+                    <div class="col-md-6" style="text-align:center">
+                      <span class="text-muted">Qualifying</span>
+                    </div>
+                    <div class="col-md-6" style="text-align:center">
+                      <span class="text-muted">Finals</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-offset-3 col-md-6 category-labels">
+              <div class="row">
+                <div class="col-md-4 teamDetails">
+                  <div class="row" align="center">
+                    <div class="col-md-6">{{result.team1.teamDetails[0].rank}}</div>
+                    <div class="col-md-6">{{result.team1.teamDetails[1].rank}}</div>
+                  </div>
+                </div>
+                <div class="col-md-4">Rank</div>
+                <div class="col-md-4 teamDetails">
+                  <div class="row" align="center">
+                    <div class="col-md-6">{{result.team2.teamDetails[0].rank}}</div>
+                    <div class="col-md-6">{{result.team2.teamDetails[1].rank}}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-offset-3 col-md-6 category-labels">
+              <div class="row">
+                <div class="col-md-4 teamDetails">
+                  <div class="row" align="center">
+                    <div class="col-md-6">{{result.team1.teamDetails[0].odds}}</div>
+                    <div class="col-md-6">{{result.team1.teamDetails[1].odds}}</div>
+                  </div>
+                </div>
+                <div class="col-md-4">Odds</div>
+                <div class="col-md-4 teamDetails">
+                  <div class="row" align="center">
+                    <div class="col-md-6">{{result.team2.teamDetails[0].odds}}</div>
+                    <div class="col-md-6">{{result.team2.teamDetails[1].odds}}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-offset-3 col-md-6 category-labels">
+              <div class="row">
+                <div class="col-md-4 teamDetails">
+                  <div class="row" align="center">
+                    <div class="col-md-6">{{result.team1.teamDetails[0].played}}</div>
+                    <div class="col-md-6">{{result.team1.teamDetails[1].played}}</div>
+                  </div>
+                </div>
+                <div class="col-md-4">Matches</div>
+                <div class="col-md-4 teamDetails">
+                  <div class="row" align="center">
+                    <div class="col-md-6">{{result.team2.teamDetails[0].played}}</div>
+                    <div class="col-md-6">{{result.team2.teamDetails[1].played}}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-offset-3 col-md-6 category-labels">
+              <div class="row">
+                <div class="col-md-4 teamDetails">
+                  <div class="row" align="center">
+                    <div class="col-md-6">{{result.team1.teamDetails[0].won}}</div>
+                    <div class="col-md-6">{{result.team1.teamDetails[1].won}}</div>
+                  </div>
+                </div>
+                <div class="col-md-4">Wins</div>
+                <div class="col-md-4 teamDetails">
+                  <div class="row" align="center">
+                    <div class="col-md-6">{{result.team2.teamDetails[0].won}}</div>
+                    <div class="col-md-6">{{result.team2.teamDetails[1].won}}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-offset-3 col-md-6 category-labels">
+              <div class="row">
+                <div class="col-md-4 teamDetails">
+                  <div class="row" align="center">
+                    <div class="col-md-6">{{result.team1.teamDetails[0].draw}}</div>
+                    <div class="col-md-6">{{result.team1.teamDetails[1].draw}}</div>
+                  </div>
+                </div>
+                <div class="col-md-4">Draws</div>
+                <div class="col-md-4 teamDetails">
+                  <div class="row" align="center">
+                    <div class="col-md-6">{{result.team2.teamDetails[0].draw}}</div>
+                    <div class="col-md-6">{{result.team2.teamDetails[1].draw}}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-offset-3 col-md-6 category-labels">
+              <div class="row">
+                <div class="col-md-4 teamDetails">
+                  <div class="row" align="center">
+                    <div class="col-md-6">{{result.team1.teamDetails[0].lost}}</div>
+                    <div class="col-md-6">{{result.team1.teamDetails[1].lost}}</div>
+                  </div>
+                </div>
+                <div class="col-md-4">Lost</div>
+                <div class="col-md-4 teamDetails">
+                  <div class="row" align="center">
+                    <div class="col-md-6">{{result.team2.teamDetails[0].lost}}</div>
+                    <div class="col-md-6">{{result.team2.teamDetails[1].lost}}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-offset-3 col-md-6 category-labels">
+              <div class="row">
+                <div class="col-md-4 teamDetails">
+                  <div class="row" align="center">
+                    <div class="col-md-6">{{result.team1.teamDetails[0].fgoal}}</div>
+                    <div class="col-md-6">{{result.team1.teamDetails[1].fgoal}}</div>
+                  </div>
+                </div>
+                <div class="col-md-4">Goals Scored</div>
+                <div class="col-md-4 teamDetails">
+                  <div class="row" align="center">
+                    <div class="col-md-6">{{result.team2.teamDetails[0].fgoal}}</div>
+                    <div class="col-md-6">{{result.team2.teamDetails[1].fgoal}}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-offset-3 col-md-6 category-labels">
+              <div class="row">
+                <div class="col-md-4 teamDetails">
+                  <div class="row" align="center">
+                    <div class="col-md-6">{{result.team1.teamDetails[0].agoal}}</div>
+                    <div class="col-md-6">{{result.team1.teamDetails[1].agoal}}</div>
+                  </div>
+                </div>
+                <div class="col-md-4">Goals Conceded</div>
+                <div class="col-md-4 teamDetails">
+                  <div class="row" align="center">
+                    <div class="col-md-6">{{result.team2.teamDetails[0].agoal}}</div>
+                    <div class="col-md-6">{{result.team2.teamDetails[1].agoal}}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!-- end match details section-->
+  </uib-tab>
+</uib-tabset>
+</div>
+</div>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<!-- ---------------------------------------------------------------------- -->
+
+
+
+
+
+<br><br>
+<div class="row">
+ <div class="col-md-offset-4 col-md-4" align="center"> <button type="submit" class="btn btn-lg btn-success btn-block">Submit Prediction</button></div>
+</div>
+</div>
+
+
+</div>
+<!--end row -->
+</div>
+<!--end container -->
+</div>
+</form>
+<!--//team-->
+<!--leaderboards-->
+<div ng-include="'leaderboard.html'">
+  <!--<div class="container">
+    <div id="mySidenavright" class="row sidenavright">
+      <br>
+      <br>
+      <br>
+      <a href="javascript:void(0)" class="closebtnl" onclick="closeNavR()"><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span></a>
+      <a href="#">PlayerA</a>
+      <a href="#">PlayerB</a>
+      <a href="#">PlayerC</a>
+      <a href="#">PlayerD</a>
+    </div>
+    <div class="clearfix"> </div>
+  </div>-->
+</div>
+<!--//leaderboards-->
+<div align="center">
+  <img src="images/watermark.png">
+</div>
+<!--footer-->
+<div class="footer wow fadeInRight animated" data-wow-delay=".5s">
+  <div class="container">
+    <p>Copyright © 2016 GoalZ. All rights reserved | Developed by VORTEX
+    </p>
+  </div>
+</div>
+<a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+<!--//footer-->
+<!-- js -->
+<script src="js/moment.js"></script>
+<script src="js/angular.min.js"></script>
+<script src="js/angular-local-storage.min.js"></script>
+<script src="js/angular-idle.js"></script>
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="js/sidenav.js"></script>
+<script src="js/ui-bootstrap.min.js"></script>
+<script src="js/controllers/superteamcontrol.js"></script>
+</body>
+
+</html>

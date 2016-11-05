@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html ng-app="goalzApp">
+
+<head>
+    <title>Goalz 2.0 : Euro Fantasy Football</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="shortcut icon" href="images/euro2016.ico" />
+    <link href="css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
+    <link href="css/style.css" type="text/css" rel="stylesheet" media="all">
+    <link href="css/animate.css" rel="stylesheet" type="text/css" media="all">
+    <link href="css/sidenav.css" rel="stylesheet" type="text/css" media="all">
+    <link href='//fonts.googleapis.com/css?family=Cabin:400,400italic,500,500italic,600,600italic,700,700italic' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+</head>
+
+<body ng-controller="landingCtrl">
+    <!--navigation-->
+    <div class="header">
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header navbar-left">
+                    <button type="button" class="navbar-toggle" ng-click="navbarCollapsed = !navbarCollapsed">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <h3><a class="navbar-brand wow bounceIn animated" href="index">
+                    <img class="euro-logo" src="images/logo.png"/> <div class="sitetitle">GOALZ 2.0</div>
+                    </a></h3>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="navbar-right" uib-collapse="navbarCollapsed">
+                    <ul class="nav navbar-nav navbar-left">
+                        <li class="hvr-bounce-to-bottom active"><a href="index">Home</a></li>
+                        <li class="hvr-bounce-to-bottom"><a href="superteam">Super Team</a></li>
+                        <li class="hvr-bounce-to-bottom"><a href="supereleven">Super XI</a></li>
+                        <li id="points" class="hvr-bounce-to-bottom">
+                            <!--<a id="showleaderboard" href="#" onclick="openNavright()">Leaderboard</a>
+                            <a id="hideleaderboard" href="#" onclick="closeNavR()">Leaderboard</a>-->
+                            <a id="showleaderboard" href="#" onclick="openNavright()">
+                                    <div class="row leaderboard">
+                              
+                                         <img src="images/superteam_icon_nav.png" class="img-circle" height="30px" width="30px"/>
+                              
+                                        {{teamPoints}} | 
+                                         <img src="images/supereleven_icon_nav.png" class="img-circle" height="30px" width="30px"/>
+                                         {{playerPoints}}
+                                    </div>
+                            </a>
+              <a id="hideleaderboard" href="#" onclick="closeNavR()">
+                <div class="row leaderboard">
+                              <img src="images/superteam_icon_nav.png" class="img-circle" height="30px" width="30px"/>
+                              
+                              {{teamPoints}} | 
+                              <img src="images/supereleven_icon_nav.png" class="img-circle" height="30px" width="30px"/>
+                              {{playerPoints}}
+                            </div> 
+              </a>
+                        </li>
+                        <li class="hvr-bounce-to-bottom"><a href="#" ng-click="logout()">Logout</a></li>
+                    </ul>
+                    <div class="clearfix"> </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <!--navigation-->
+    <!--about-->
+    <div class="about" id="about">
+        <div class="container">
+            <div align="center"><img src="images/header-logo.png"></div>
+            <br>
+            <div class="logo-background">
+                <h3 class="pageheadertitle">GOALZ 2.0</h3>
+            </div>
+            <div class="col-md-12 about-right fadeInRight animated" align="center">
+                <h4>Goalz 2.0 is a UEFA EURO 2016 Fantasy Football brought to you by VORTEX..for Euro 2016</h4>
+            </div>
+            <div class="clearfix"> </div>
+
+             <!-- today's matches -->
+             <!-- <div align="center" style="height: 305px">
+             <uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
+                <uib-slide ng-repeat="match in matches track by match.matchId" index="match.matchId">
+                    <img ng-src="images/{{match.matchId}}.jpg" style="margin:auto;">
+                    <div class="carousel-caption">
+                        <h4>Match {{match.matchId}}</h4>
+                        <p>{{slide.text}}</p>
+                    </div>
+                </uib-slide>
+            </uib-carousel>
+            </div> -->
+  <!--// today's matches-->
+        </div>
+
+    </div>
+    <!--//about-->
+   
+
+    <!--Thegames-->
+    <div class="games" id="games">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12" align="center">
+                    <h3 style="color:#ffffff">Choose Your Game:</h3></div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-4 col-md-offset-2" align="center" style="padding-top: 15px;">
+                    <a href="superteam.html" class="box"><img src="images/superteam_icon.png" /></a>
+                </div>
+                <div class="col-md-4" align="center">
+                    <a href="supereleven.html" class="box"><img src="images/supereleven_icon.png" /></a>
+                </div>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+    <!--//thegames-->
+    <!--team-->
+    
+    <!--//team-->
+    <!--leaderboards-->
+    <div ng-include="'leaderboard.html'">
+        <!--<div class="container">
+            <div id="mySidenavright" class="row sidenavright">
+                <a href="#">PlayerA</a>
+                <a href="#">PlayerB</a>
+                <a href="#">PlayerC</a>
+                <a href="#">PlayerD</a>
+            </div>
+            <div class="clearfix"> </div>
+        </div>-->
+    </div>
+    <!--//leaderboards-->
+    <div align="center">
+        <img src="images/watermark.png">
+    </div>
+    <!--footer-->
+    <div class="footer fadeInRight">
+        <div class="container">
+            <p>Copyright © 2016 GoalZ. All rights reserved | Developed by VORTEX
+            </p>
+        </div>
+    </div>
+    <a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+    <!--//footer-->
+    
+    <!-- js -->
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-local-storage.min.js"></script>
+    <script src="js/angular-idle.js"></script>
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/sidenav.js"></script>
+    <script src="js/ui-bootstrap.min.js"></script>
+    <script src="js/controllers/landingcontrol.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/controllers/services.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+{
+    "fixture": {
+        "matchId": 1,
+        "team1": null,
+        "team2": null,
+        "matchDateTime": 1462525125920,
+        "matchVenue": "ENGLAND"
+    },
+    "userPoints": {
+        "userId": 123,
+        "teamPoints": 290,
+        "playerPoints": 100
+    },
+    "predictedPlayers": [{
+        "predictedPlayerId": null,
+        "player": {
+            "playerId": 123,
+            "playerCode": "ENG_123",
+            "position": "FWD",
+            "name": "Mesut Özil",
+            "age": 29,
+            "club": "Arsenal",
+            "euroPoint": 98,
+            "played": 80,
+            "goals": 89,
+            "rank": 0
+        },
+        "userAllocPoints": null,
+        "pointFact": null,
+        "matchPoints": null
+    }, {
+        "predictedPlayerId": null,
+        "player": {
+            "playerId": 456,
+            "playerCode": "ENG_456",
+            "position": "DEF",
+            "name": "Olivier Giroud",
+            "age": 21,
+            "club": "Arsenal",
+            "euroPoint": 12,
+            "played": 8,
+            "goals": 9,
+            "rank": 0
+        },
+        "userAllocPoints": null,
+        "pointFact": null,
+        "matchPoints": null
+    }]
+}

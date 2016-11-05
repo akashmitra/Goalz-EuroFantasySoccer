@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html ng-app="goalzApp">
+
+<head lang="en">
+    <meta charset="utf-8">
+    <title>Super Eleven</title>
+    <link rel="shortcut icon" href="images/euro2016.ico" />
+    <link href="css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
+    <link href="css/style.css" type="text/css" rel="stylesheet" media="all">
+    <link href="css/animate.css" rel="stylesheet" type="text/css" media="all">
+    <link href="css/supereleven.css" rel="stylesheet" type="text/css" media="all">
+    <link href="css/sidenav.css" rel="stylesheet" type="text/css" media="all">
+    <link href='//fonts.googleapis.com/css?family=Cabin:400,400italic,500,500italic,600,600italic,700,700italic' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+</head>
+
+<body ng-controller="superelevenCtrl">
+    <!--navigation-->
+    <div class="header">
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header navbar-left">
+                    <button type="button" class="navbar-toggle" ng-click="navbarCollapsed = !navbarCollapsed">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <h3><a class="navbar-brand wow bounceIn animated"  href="index">
+                        <img class="euro-logo" src="images/logo.png"/> <div class="sitetitle">GOALZ 2.0</div>
+                    </a></h3>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="navbar-right" uib-collapse="navbarCollapsed">
+                    <ul class="nav navbar-nav navbar-left">
+                        <li class="hvr-bounce-to-bottom"><a href="index">Home</a></li>
+                        <li class="hvr-bounce-to-bottom"><a href="superteam">Super Team</a></li>
+                        <li class="hvr-bounce-to-bottom active"><a href="supereleven">Super XI</a></li>
+                        <li id="points" class="hvr-bounce-to-bottom">
+                            <!-- <a id="showleaderboard" href="#" onclick="openNavright()">Leaderboard</a>
+                           <a id="hideleaderboard" href="#" onclick="closeNavR()">Leaderboard</a>-->
+                            <a id="showleaderboard" href="#" onclick="openNavright()">
+                                <div class="row leaderboard">
+                                    <img src="images/superteam_icon_nav.png" class="img-circle" height="30px" width="30px" /> {{teamPoints}} |
+                                    <img src="images/supereleven_icon_nav.png" class="img-circle" height="30px" width="30px" /> {{playerPoints}}
+                                </div>
+                            </a>
+                            <a id="hideleaderboard" href="#" onclick="closeNavR()">
+                                <div class="row leaderboard">
+                                    <img src="images/superteam_icon_nav.png" class="img-circle" height="30px" width="30px" /> {{teamPoints}} |
+                                    <img src="images/supereleven_icon_nav.png" class="img-circle" height="30px" width="30px" /> {{playerPoints}}
+                                </div>
+                            </a>
+                        </li>
+                        <li class="hvr-bounce-to-bottom"><a href="#" ng-click="logout()">Logout</a></li>
+                    </ul>
+                    <div class="clearfix"> </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <!--navigation-->
+    <!--about-->
+    <div class="about" id="about">
+        <div class="container">
+            <div align="center"><img src="images/header-logo.png"></div>
+            <br>
+            <div class="logo-background">
+                <h3 class="pageheadertitle">Super Eleven</h3>
+            </div>
+            <div class="col-md-12 about-right fadeInRight animated" align="center">
+                <h4>How to play Super XI?</h4>
+                <h4>Make your team of XI and sail to glory.</h4>
+                <p>Based on your players actual Performance on the field, you will be awarded with points. Player with the max points at the end of the tournament wins.</p>
+                <br>
+                <a class="more" href="#"> Details of the Game </a>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+    <!--//about-->
+    <!--team-->
+    <div class="superteamsection" id="team">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-offset-4 col-md-4" style="color: white;
+            font-size: 35px; text-align: center">
+                    <label>SUPER ELEVEN</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h5 style="margin-top:8px; color: red; text-align: center">{{errorMsg}}</h5>
+                </div>
+            </div>
+            <br>
+            <br>
+            <br>
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="nav nav-tabs">
+                        <li ng-repeat="result in results" ng-class="{'active' : activeTab == {{$index}}}" ng-click="setMatchId(result.matchId); toggleTabs($index); filterPlayerList(result, $index, search);"><a>Match#{{result.matchId}}</a></li>
+                    </ul>
+                    <div class="supereleven-content" ng-repeat="result in results" ng-show="activeTab == {{$index}}">
+                        <!-- user cannot play -->
+                        <div class="container-fluid" ng-show="userCannotPlay[$index] == result.matchId && existingPrediction[$index][result.matchId].predictionId == null">
+                            <div class="row">
+                                <div class="col-md-offset-3 col-md-6" align="center">
+                                    <div class="row">
+                                        <img src="images/timesup.png" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end user cannot play -->
+                        <div class="container-fluid" ng-hide="userCannotPlay[$index] == result.matchId && existingPrediction[$index][result.matchId].predictionId == null">
+                            <div class="row" ng-show="existingPrediction[activeTab][result.matchId].predictionId == null &&userCannotPlay[$index] != result.matchId">
+                                <div align="center">
+                                    <h3 style="margin-bottom:10px;"><h3>{{result.team1.teamName}}&nbsp;<span style="font-size:75%">vs</span>&nbsp;{{result.team2.teamName}}</h3>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-5" ng-show="existingPrediction[activeTab][result.matchId].predictionId != null" style="padding-top:280px;">
+                                    <h4 align="center" style="margin-bottom:10px;">Your Squad for</h4>
+                                    <h1 align="center">{{result.team1.teamName}} <span style="font-size:60%">vs</span> {{result.team2.teamName}}</h1>
+                                </div>
+                                <div class="col-md-5" ng-show="existingPrediction[activeTab][result.matchId].predictionId == null && userCannotPlay[$index] != result.matchId">
+                                    <div class="row">
+                                        <div class="col-md-6 col-md-offset-2" style="padding-bottom:10px;">
+                                            <div class="control-group">
+                                                <div class="controls">
+                                                    <select name="" ng-model="search" class="form-control" ng-options="position.id as position.name for position in positions" ng-change="filterPlayerList(result, $index, search);">
+                                                        <option value="" hidden>Select player position</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-md-offset-2" style="padding-bottom:10px;">
+                                            <div class="control-group">
+                                                <div class="controls">
+                                                    <input type="text" ng-model="searchbyname" class="form-control" placeholder="Search By Name or Club">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End of Select-->
+                                    <div class="row playerlist">
+                                        <div class="col-md-6" align="center">
+                                            <p ng-show="search">{{result.team1.teamName}}</p>
+                                            <div class="btn-droppable player-box" ng-repeat="player in filteredTeam1.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage)) | filter: searchbyname" data-drop="true" ng-model='player' jqyoui-droppable="{index: {{$index}}}" align="center">
+                                                <div class="btn-draggable" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" ng-model="player" jqyoui-draggable="{index: {{$index}},animate:true}" ng-hide="!player.name" align="center">
+                                                    <img class="player-headshot" src="images/players/{{player.playerCode}}.jpg" />
+                                                    <img class="crest" src="images/crest/Crest_ESP.png" />
+                                                    <p class="playername" align="center"><b>{{player.name}}</b></p>
+                                                    <p class="playerdetails" align="center">Age : {{player.age}}</p>
+                                                    <p class="playerdetails" align="center">Club : {{player.club}}</p>
+                                                    <p class="playerdetails" align="center">Played : {{player.played}}</p>
+                                                    <p class="playerdetails" align="center">Goals : {{player.goals}}</p>
+                                                    <p class="playerdetails" align="center">Goalz Points : {{player.euroPoint}}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- End of Team A-->
+                                        <div class="col-md-6" align="center">
+                                            <p ng-show="search">{{result.team2.teamName}}</p>
+                                            <div class="btn-droppable player-box" ng-repeat="player in filteredTeam2.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage)) | filter: searchbyname" data-drop="true" ng-model='player' value="player" jqyoui-droppable="{index: {{$index}}}" align="center">
+                                                <div class="btn-draggable" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" ng-model="player" jqyoui-draggable="{index: {{$index}},animate:true}" ng-hide="!player.name" align="center">
+                                                    <img class="player-headshot" src="images/players/{{player.playerCode}}.jpg" />
+                                                    <img class="crest" src="images/crest/Crest_GER.png" />
+                                                    <p class="playername" align="center"><b>{{player.name}}</b></p>
+                                                    <p class="playerdetails" align="center">Age : {{player.age}}</p>
+                                                    <p class="playerdetails" align="center">Club : {{player.club}}</p>
+                                                    <p class="playerdetails" align="center">Played : {{player.played}}</p>
+                                                    <p class="playerdetails" align="center">Goals : {{player.goals}}</p>
+                                                    <p class="playerdetails" align="center">Goalz Points : {{player.euroPoint}}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End of Row -->
+                                    <div class="row" align="center">
+                                        <div class="col-md-offset-2 col-md-6">
+                                            <uib-pagination total-items="totalItems_FWD" ng-model="currentPage" ng-change="pageChanged();filterPlayerList(result, $index, search);" class="pagination-sm" items-per-page="itemsPerPage_FWD" ng-show="search!=null && search=='FWD'"></uib-pagination>
+                                            <uib-pagination total-items="totalItems_MID" ng-model="currentPage" ng-change="pageChanged();filterPlayerList(result, $index, search);" class="pagination-sm" items-per-page="itemsPerPage" ng-show="search!=null && search=='MID'"></uib-pagination>
+                                            <uib-pagination total-items="totalItems_DEF" ng-model="currentPage" ng-change="pageChanged();filterPlayerList(result, $index, search);" class="pagination-sm" items-per-page="itemsPerPage" ng-show="search!=null && search=='DEF'"></uib-pagination>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ground col-md-7" align="center">
+                                    <span align="center;" style="color:red" ng-cloak><p><I>{{exceptionMsg}}</I><p></span>
+                                    <!-- Image and Placeholders-->
+                                    <div class="row superfwd">
+                                        <div class="col-md-12" align="center">
+                                            <div class='contentWrapper ng-cloak' ng-show="search=='FWD'">
+                                                <div class='content'>
+                                                    <ul class="player-thumbnails">
+                                                        <li style='margin-left:10px;' ng-repeat="player in result.myplayerLists.myfwd">
+                                                            <div class="placeholder-droppable" data-drop="true" ng-model='existingPrediction[$parent.$index][result.matchId].predictedPlayers[$index].player' jqyoui-droppable="{index: {{$index}}}"><img class="player-headshot" src="images/fwd_placeholder.jpg" ng-show="existingPrediction[$parent.$index][result.matchId].predictedPlayers[$index].player.name == null" />
+                                                                <div class="btn-draggable" ng-show="existingPrediction[$parent.$index][result.matchId].predictedPlayers[$index].player.name" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" ng-model="existingPrediction[$parent.$index][result.matchId].predictedPlayers[$index].player" jqyoui-draggable="{index: {{$index}},placeholder:true,animate:true}">
+                                                                    <img class="player-headshot" src="images/players/{{existingPrediction[$parent.$index][result.matchId].predictedPlayers[$index].player.playerCode}}.jpg" uib-tooltip="{{existingPrediction[$parent.$index][result.matchId].predictedPlayers[$index].player.name}}" />
+                                                                    <input type="number" class="form-control playerpoints" ng-model="existingPrediction[$parent.$index][result.matchId].predictedPlayers[$index].userAllocPoints" required/>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class='contentWrapper ng-cloak' ng-show="search!='FWD'">
+                                                <div class='content'>
+                                                    <ul class="player-thumbnails">
+                                                        <li style='margin-left:10px;' ng-repeat="player in result.myplayerLists.myfwd">
+                                                            <div class="placeholder-droppable" data-drop="false" ng-model='existingPrediction[$parent.$index][result.matchId].predictedPlayers[$index].player' jqyoui-droppable="{index: {{$index}}}"><img class="player-headshot" src="images/placeholder.jpg" ng-show="existingPrediction[$parent.$index][result.matchId].predictedPlayers[$index].player.name==null" />
+                                                                <div class="btn-draggable" ng-show="existingPrediction[$parent.$index][result.matchId].predictedPlayers[$index].player.name" data-drag="false" data-jqyoui-options="{revert: 'invalid'}" ng-model="existingPrediction[$parent.$index][result.matchId].predictedPlayers[$index].player" jqyoui-draggable="{index: {{$index}},placeholder:true,animate:true}">
+                                                                    <img class="player-headshot" src="images/players/{{existingPrediction[$parent.$index][result.matchId].predictedPlayers[$index].player.playerCode}}.jpg" uib-tooltip="{{existingPrediction[$parent.$index][result.matchId].predictedPlayers[$index].player.name}}" />
+                                                                    <input type="number" class="form-control playerpoints" ng-model="existingPrediction[$parent.$index][result.matchId].predictedPlayers[$index].userAllocPoints" ng-disabled="existingPrediction[$parent.$index][result.matchId].predictionId != null" />
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row supermid">
+                                        <div class="col-md-12">
+                                            <div class='contentWrapper ng-cloak' ng-show="search=='MID'">
+                                                <div class='content'>
+                                                    <ul class="player-thumbnails">
+                                                        <li style='margin-left:10px;' ng-repeat="player in result.myplayerLists.mymid">
+                                                            <div class="placeholder-droppable" data-drop="true" ng-model='existingPrediction[$parent.$index][result.matchId].predictedPlayers[$index+4].player' jqyoui-droppable="{index: {{$index}}}"><img class="player-headshot" src="images/mid_placeholder.jpg" ng-show="existingPrediction[$parent.$index][result.matchId].predictedPlayers[$index+4].player.name==null" />
+                                                                <div class="btn-draggable" ng-show="existingPrediction[$parent.$index][result.matchId].predictedPlayers[$index+4].player.name" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" ng-model="existingPrediction[$parent.$index][result.matchId].predictedPlayers[$index+4].player" jqyoui-draggable="{index: {{$index}},placeholder:true,animate:true}">
+                                                                    <img class="player-headshot" src="images/players/{{existingPrediction[$parent.$index][result.matchId].predictedPlayers[$index+4].player.playerCode}}.jpg" uib-tooltip="{{existingPrediction[$parent.$index][result.matchId].predictedPlayers[$index+4].player.name}}" />
+                                                                    <input type="number" class="form-control playerpoints" ng-model="existingPrediction[$parent.$index][result.matchId].predictedPlayers[$index+4].userAllocPoints" required/>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class='contentWrapper ng-cloak' ng-show="search!='MID'">
+                                                <div class='content'>
+                                                    <ul class="player-thumbnails">
+                                                        <li style='margin-left:10px;' ng-repeat="player in result.myplayerLists.mymid">
+                                                            <div class="placeholder-droppable" data-drop="false" ng-model='existingPrediction[$parent.$index][result.matchId].predictedPlayers[$index+4].player' jqyoui-droppable="{index: {{$index}}}"><img class="player-headshot" src="images/placeholder.jpg" ng-show="existingPrediction[$parent.$index][result.matchId].predictedPlayers[$index+4].player.name==null" />
+                                                                <div class="btn-draggable" ng-show="existingPrediction[$parent.$index][result.matchId].predictedPlayers[$index+4].player.name" data-drag="false" data-jqyoui-options="{revert: 'invalid'}" ng-model="existingPrediction[$parent.$index][result.matchId].predictedPlayers[$index+4].player" jqyoui-draggable="{index: {{$index}},placeholder:true,animate:true}">
+                                                                    <img class="player-headshot" src="images/players/{{existingPrediction[$parent.$index][result.matchId].predictedPlayers[$index+4].player.playerCode}}.jpg" uib-tooltip="{{existingPrediction[$parent.$index][result.matchId].predictedPlayers[$index+4].player.name}}" />
+                                                                    <input type="number" class="form-control playerpoints" ng-model="existingPrediction[$parent.$index][result.matchId].predictedPlayers[$index+4].userAllocPoints" ng-disabled="existingPrediction[$parent.$index][result.matchId].predictionId != null" />
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row superdef">
+                                        <div class="col-md-12">
+                                            <div class='contentWrapper ng-cloak' ng-show="search=='DEF'">
+                                                <div class='content'>
+                                                    <ul class="player-thumbnails">
+                                                        <li style='margin-left:10px;' ng-repeat="player in result.myplayerLists.mydef">
+                                                            <div class="placeholder-droppable" data-drop="true" ng-model='existingPrediction[$parent.$index][result.matchId].predictedPlayers[$index+9].player' jqyoui-droppable="{index: {{$index}}}"><img class="player-headshot" src="images/def_placeholder.jpg" ng-show="existingPrediction[$parent.$index][result.matchId].predictedPlayers[$index+9].player.name==null" />
+                                                                <div class="btn-draggable" ng-show="existingPrediction[$parent.$index][result.matchId].predictedPlayers[$index+9].player.name" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" ng-model="existingPrediction[$parent.$index][result.matchId].predictedPlayers[$index+9].player" jqyoui-draggable="{index: {{$index}},placeholder:true,animate:true}">
+                                                                    <img class="player-headshot" src="images/players/{{existingPrediction[$parent.$index][result.matchId].predictedPlayers[$index+9].player.playerCode}}.jpg" uib-tooltip="{{existingPrediction[$parent.$index][result.matchId].predictedPlayers[$index+9].player.name}}" />
+                                                                    <input type="number" class="form-control playerpoints" ng-model="existingPrediction[$parent.$index][result.matchId].predictedPlayers[$index+9].userAllocPoints" required/>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class='contentWrapper ng-cloak' ng-show="search!='DEF'">
+                                                <div class='content'>
+                                                    <ul class="player-thumbnails">
+                                                        <li style='margin-left:10px;' ng-repeat="player in result.myplayerLists.mydef">
+                                                            <div class="placeholder-droppable" data-drop="false" ng-model='existingPrediction[$parent.$index][result.matchId].predictedPlayers[$index+9]' jqyoui-droppable="{index: {{$index}}}"><img class="player-headshot" src="images/placeholder.jpg" ng-show="existingPrediction[$parent.$index][result.matchId].predictedPlayers[$index+9].player.name==null" />
+                                                                <div class="btn-draggable" ng-show="existingPrediction[$parent.$index][result.matchId].predictedPlayers[$index+9].player.name" data-drag="false" data-jqyoui-options="{revert: 'invalid'}" ng-model="existingPrediction[$parent.$index][result.matchId].predictedPlayers[$index+9]" jqyoui-draggable="{index: {{$index}},placeholder:true,animate:true}">
+                                                                    <img class="player-headshot" src="images/players/{{existingPrediction[$parent.$index][result.matchId].predictedPlayers[$index+9].player.playerCode}}.jpg" uib-tooltip="{{existingPrediction[$parent.$index][result.matchId].predictedPlayers[$index+9].player.name}}" />
+                                                                    <input type="number" class="form-control playerpoints" ng-model="existingPrediction[$parent.$index][result.matchId].predictedPlayers[$index+9].userAllocPoints" ng-disabled="existingPrediction[$parent.$index][result.matchId].predictionId != null" />
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row supergk">
+                                        <div class="col-md-12">
+                                            <div class='contentWrapper ng-cloak' ng-show="search=='GK'">
+                                                <div class='content'>
+                                                    <ul class="player-thumbnails">
+                                                        <li style='margin-left:10px;' ng-repeat="player in result.myplayerLists.mygk">
+                                                            <div class="placeholder-droppable" data-drop="true" ng-model='existingPrediction[$parent.$index][result.matchId].predictedPlayers[$index+14].player' jqyoui-droppable="{index: {{$index}}}"><img class="player-headshot" src="images/gk_placeholder.jpg" ng-show="existingPrediction[$parent.$index][result.matchId].predictedPlayers[$index+14].player.name==null" />
+                                                                <div class="btn-draggable" ng-show="existingPrediction[$parent.$index][result.matchId].predictedPlayers[$index+14].player.name" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" ng-model="existingPrediction[$parent.$index][result.matchId].predictedPlayers[$index+14].player" jqyoui-draggable="{index: {{$index}},placeholder:true,animate:true}">
+                                                                    <img class="player-headshot" src="images/players/{{existingPrediction[$parent.$index][result.matchId].predictedPlayers[$index+14].player.playerCode}}.jpg" uib-tooltip="{{existingPrediction[$parent.$index][result.matchId].predictedPlayers[$index+14].player.name}}" />
+                                                                    <input type="number" class="form-control playerpoints" ng-model="existingPrediction[$parent.$index][result.matchId].predictedPlayers[$index+14].userAllocPoints" required/>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class='contentWrapper ng-cloak' ng-show="search!='GK'">
+                                                <div class='content'>
+                                                    <ul class="player-thumbnails">
+                                                        <li style='margin-left:10px;' ng-repeat="player in result.myplayerLists.mygk">
+                                                            <div class="placeholder-droppable" data-drop="false" ng-model='existingPrediction[$parent.$index][result.matchId].predictedPlayers[$index+14].player' jqyoui-droppable="{index: {{$index}}}"><img class="player-headshot" src="images/placeholder.jpg" ng-show="existingPrediction[$parent.$index][result.matchId].predictedPlayers[$index+14].player.name==null" />
+                                                                <div class="btn-draggable" ng-show="existingPrediction[$parent.$index][result.matchId].predictedPlayers[$index+14].player.name" data-drag="false" data-jqyoui-options="{revert: 'invalid'}" ng-model="existingPrediction[$parent.$index][result.matchId].predictedPlayers[$index+14].player" jqyoui-draggable="{index: {{$index}},placeholder:true,animate:true}">
+                                                                    <img class="player-headshot" src="images/players/{{existingPrediction[$parent.$index][result.matchId].predictedPlayers[$index+14].player.playerCode}}.jpg" uib-tooltip="{{existingPrediction[$parent.$index][result.matchId].predictedPlayers[$index+14].player.playerCode}}.player.name}}" />
+                                                                    <input type="number" class="form-control playerpoints" ng-model="existingPrediction[$parent.$index][result.matchId].predictedPlayers[$index+14].userAllocPoints" ng-disabled=" existingPrediction[activeTab][result.matchId].predictionId != null" />
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- <p>{{existingPrediction[$index][result.matchId]}}</p> -->
+                            </div>
+                        </div>
+                        <button ng-click="resetGK();">Reset Goalkeepers</button>
+                    </div>
+                    <!-- end match details section-->
+                    <br>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-offset-4 col-md-4" align="center">
+                            <button type="submit" class="btn btn-lg btn-success btn-block" ng-click="submitPrediction();">Submit Prediction</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--end row -->
+        </div>
+        <!--end container -->
+    </div>
+    <!--//team-->
+    <!--leaderboards-->
+    <div ng-include="'leaderboard.html'">
+    </div>
+    <!--//leaderboards-->
+    <div align="center">
+        <img src="images/watermark.png">
+    </div>
+    <!--footer-->
+    <div class="footer wow fadeInRight animated" data-wow-delay=".5s">
+        <div class="container">
+            <p>Copyright © 2016 GoalZ. All rights reserved | Developed by VORTEX
+            </p>
+        </div>
+    </div>
+    <a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+    <!--//footer-->
+    <!-- JS-->
+    <script src="js/moment.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-local-storage.min.js"></script>
+    <script src="js/dirPagination.js"></script>
+    <script src="js/angular-idle.js"></script>
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/angular-dragdrop.js"></script>
+    <script src="js/sidenav.js"></script>
+    <script src="js/ui-bootstrap.min.js"></script>
+    <script src="js/controllers/superelevencontrol.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/controllers/services.js"></script>
+</body>
+
+</html>

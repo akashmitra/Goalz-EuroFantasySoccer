@@ -1,0 +1,138 @@
+{
+    "uservo": {
+        "userId": 123,
+        "teamPoints": 290,
+        "playerPoints": 100,
+        "lastModifiedTime": null
+    },
+    "fixtures": [{
+        "matchId": 2,
+      "team1": {
+        "teamId": 1,
+        "teamName": "ALBANIA",
+        "countryCode": "ALB",
+        "playerLists": [],
+        "teamDetails": [
+          {
+            "teamDetailsId": 2,
+            "level": "Qualifying",
+            "played": 50,
+            "won": 15,
+            "draw": 10,
+            "lost": 25,
+            "fgoal": 160,
+            "agoal": 100,
+            "rank": 0
+          },
+          {
+            "teamDetailsId": 1,
+            "level": "Finals",
+            "played": 3,
+            "won": 1,
+            "draw": 0,
+            "lost": 2,
+            "fgoal": 1,
+            "agoal": 5,
+            "rank": 0
+          }
+        ]
+      },
+      "team2": {
+        "teamId": 2,
+        "teamName": "ENGLAND",
+        "countryCode": "ENG",
+        "playerLists": [],
+        "teamDetails": [
+          {
+            "teamDetailsId": 4,
+            "level": "Qualifying",
+            "played": 75,
+            "won": 25,
+            "draw": 25,
+            "lost": 25,
+            "fgoal": 260,
+            "agoal": 200,
+            "rank": 0
+          },
+          {
+            "teamDetailsId": 3,
+            "level": "Finals",
+            "played": 3,
+            "won": 2,
+            "draw": 0,
+            "lost": 2,
+            "fgoal": 2,
+            "agoal": 5,
+            "rank": 0
+          }
+        ]
+      },
+      "matchDateTime": "2016/06/01 20:30:00",
+      "matchVenue": "Lens"
+    }, {
+        "matchId": 3,
+      "team1": {
+        "teamId": 3,
+        "teamName": "SPAIN",
+        "countryCode": "ESP",
+        "playerLists": [],
+        "teamDetails": [
+          {
+            "teamDetailsId": 3,
+            "level": "Qualifying",
+            "played": 50,
+            "won": 35,
+            "draw": 30,
+            "lost": 35,
+            "fgoal": 360,
+            "agoal": 300,
+            "rank": 0
+          },
+          {
+            "teamDetailsId": 3,
+            "level": "Finals",
+            "played": 3,
+            "won": 3,
+            "draw": 0,
+            "lost": 3,
+            "fgoal": 3,
+            "agoal": 5,
+            "rank": 0
+          }
+        ]
+      },
+      "team2": {
+        "teamId": 4,
+        "teamName": "GERMANY",
+        "countryCode": "GER",
+        "playerLists": [],
+        "teamDetails": [
+          {
+            "teamDetailsId": 4,
+            "level": "Qualifying",
+            "played": 50,
+            "won": 45,
+            "draw": 40,
+            "lost": 45,
+            "fgoal": 460,
+            "agoal": 400,
+            "rank": 0
+          },
+          {
+            "teamDetailsId": 4,
+            "level": "Finals",
+            "played": 4,
+            "won": 4,
+            "draw": 0,
+            "lost": 4,
+            "fgoal": 4,
+            "agoal": 5,
+            "rank": 0
+          }
+        ]
+      },
+      "matchDateTime": "2016/06/01 23:30:00",
+      "matchVenue": "Bordeaux"
+    }],
+	  "serverCurrentTime": "2016/06/01 10:31:00"
+}

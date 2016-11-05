@@ -1,0 +1,57 @@
+{
+  "userPointsVO": {
+    "userId": 485870,
+  },
+  "superPlayerPredictionVOList": [
+    {
+      "predictionId": 63, // This is existing player prediction.
+      "fixture": {
+        "matchId": 2
+      },
+      "predictedPlayers": [
+        {
+          "predictedPlayerId": 21,
+          "player": {
+            "playerId": 1
+          },
+          "userAllocPoints": 189,
+        },
+        {
+          "predictedPlayerId": 22,
+          "player": {
+            "playerId": 328
+          },
+          "userAllocPoints": 260,
+
+        }
+      ]
+    },
+    {
+      "predictionId": 0, // This is a new prediction.
+      "fixture": {
+        "matchId": 3
+      },
+      "predictedPlayers": [
+        {
+          "predictedPlayerId": 32,
+          "player": {
+            "playerId": 1
+          },
+          "userAllocPoints": 700,
+          "pointFact": 0,
+          "matchPoints": 0
+        },
+        {
+          "predictedPlayerId": 21,
+          "player": {
+            "playerId": 5
+          },
+          "userAllocPoints": 600,
+
+        }
+      ]
+    }
+
+
+      ]
+    }
